@@ -7,13 +7,23 @@ class UsersController < ApplicationController
 
 
     #NEW
-    get "/users/new" do
+    get "/signup" do
       erb :"users/new"
     end
 
     #CREATE
-    post "/users" do
-      redirect "/users"
+    post "/signup" do
+      redirect "/users/login"
+    end
+
+
+    #LOGIN
+    get '/login' do
+      erb :"users/login"
+    end
+
+    post "/login" do
+      redirect "/users/#{@user.id}"
     end
 
 
