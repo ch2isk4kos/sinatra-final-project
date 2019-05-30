@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
     validates :password, presence: true
     validates_uniqueness_of :email
     validates_uniqueness_of :username
+
+    has_many :matchups
 end
