@@ -18,12 +18,12 @@
       <% if logged_in? %>
         <a href="/">Home</a>
         <a href="/users/<%= current_user.id %>">Profile</a>
-        <a href="/logout">Sign Out</a>
         logged in as <a href="#"><%= current_user.username %></a>
+        <a href="/logout">Sign Out</a>
       <% else %>
         <a href="/signup">Sign Up</a>
         <a href="/login">Login</a>
-      <% end %>
+      <% end %><br>
       <br>
       <flash>
         <% if flash.has?(:message) %>

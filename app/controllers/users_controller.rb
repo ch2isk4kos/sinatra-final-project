@@ -42,14 +42,15 @@ class UsersController < ApplicationController
 
     post "/login" do
       user = User.find_by(email: params[:email])
-        if user && user.authenticate(params[:password])
-          session[:user_id] = user.id
-          flash[:message] = "Welcome Back #{user.username}"
-          redirect '/'
-        else
-          flash[:message] = "I'm sorry, we haven't met yet..."
-          erb :"users/new"
-        end
+
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        flash[:message] = "Welcome Back #{user.username}"
+        redirect '/'
+      else
+        flash[:message] = "I'm sorry, we haven't met yet..."
+        erb :"users/new"
+      end
     end
 
     #LOGOUT
@@ -63,19 +64,29 @@ class UsersController < ApplicationController
 
     #SHOW
     get "/users/:id" do
-      @user = User.find_by_id(params[:id])
-      erb :"users/show"
+      if logged_in?
+        @user = User.find_by_id(params[:id])
+        erb :"users/show"
+      else
+        flash[:message] = "You have to sign in to do that."
+        redirect "/login"
+      end
     end
 
     #EDIT
     get "/users/:id/edit" do
-      @user = User.find_by_id(params[:id])
+      if logged_in?
+        @user = User.find_by_id(params[:id])
 
-      if current_user == @user
-        erb :"users/edit"
+        if current_user == @user
+          erb :"users/edit"
+        else
+          flash[:message] = "Sorry, You can't do that here!"
+          erb :"users/show"
+        end
+
       else
-        flash[:message] = "Sorry, You can't do that here!"
-        erb :"users/show"
+        redirect "/login"
       end
     end
 
@@ -97,8 +108,9 @@ class UsersController < ApplicationController
 
     #DESTROY
     delete "/users/:id/delete" do
+       @user = User.find_by_id(params[:id])
+
        if logged_in?
-         @user = User.find_by_id(params[:id])
          @user.delete
          session.clear
          flash[:message] = "Step your game up!"
