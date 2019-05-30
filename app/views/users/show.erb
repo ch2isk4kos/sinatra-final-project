@@ -1,1 +1,8 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h2><%= @user.username %>'s Profile</h2>
+<br>
+<a href="/users/<%= "#{@user.id}" %>/edit">Edit Profile</a><br>
+<br>
+<form action='/reviews/<%= "#{@user.id}" %>/delete' method='post' >
+  <input type='hidden' name='_method' value='delete'>
+  <input type='submit' name='delete' value='Delete Profile'>
+</form>

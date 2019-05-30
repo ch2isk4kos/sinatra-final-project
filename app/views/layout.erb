@@ -14,6 +14,22 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+
+      <% if logged_in? %>
+        <a href="/">Home</a>
+        <a href="/users/<%= current_user.id %>">Profile</a>
+        <a href="/logout">Sign Out</a>
+      <% else %>
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Login</a>
+      <% end %>
+      <br>
+      <flash>
+        <% if flash.has?(:message) %>
+          <%= flash[:message] %>
+        <% end %>
+      </flash>
+
     <div class="wrapper">
 
         <%= yield %>
