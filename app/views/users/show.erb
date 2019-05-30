@@ -1,8 +1,10 @@
 <h2><%= @user.username %>'s Profile</h2>
 <br>
-<a href="/users/<%= "#{@user.id}" %>/edit">Edit Profile</a><br>
-<br>
-<form action='/users/<%= "#{@user.id}" %>/delete' method='post' >
-  <input type='hidden' name='_method' value='delete'>
-  <input type='submit' name='delete' value='Delete Profile'>
-</form>
+<% if current_user == @user %>
+  <a href="/users/<%= "#{@user.id}" %>/edit">Edit Profile</a><br>
+  <br>
+  <form action='/users/<%= "#{@user.id}" %>/delete' method='post' >
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' name='delete' value='Delete Profile'>
+  </form>
+<% end %>
