@@ -2,7 +2,7 @@
 <br>
 <a href="/users/<%= "#{@user.id}" %>/edit">Edit Profile</a><br>
 <br>
-<form action='/reviews/<%= "#{@user.id}" %>/delete' method='post' >
+<form action='/users/<%= "#{@user.id}" %>/delete' method='post' >
   <input type='hidden' name='_method' value='delete'>
   <input type='submit' name='delete' value='Delete Profile'>
 </form>

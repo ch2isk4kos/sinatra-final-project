@@ -34,11 +34,11 @@ class UsersController < ApplicationController
       user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
           session[:user_id] = user.id
-          flash[:message] = "You Are Logged In"
+          flash[:message] = "Welcome Back #{user.username}"
           redirect '/'
         else
-          flash[:message] = "Something Went Completely Wrong."
-          erb :"users/login"
+          flash[:message] = "I'm sorry, we haven't met..."
+          erb :"users/new"
         end
     end
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     get '/logout' do
       if logged_in?
         session.destroy
-        flash[:message] = "You're Signed Out"
+        flash[:message] = "You've Signed Out"
         redirect '/'
       end
     end
@@ -77,7 +77,9 @@ class UsersController < ApplicationController
     #DESTROY
     delete "/users/:id/delete" do
       @user = User.find_by_id(params[:id])
+      @user.delete
+      session.clear
       flash[:message] = "That's Fucked Up! I Didn't Want You Here Anyway!"
-      redirect "/users"
+      redirect "/"
     end
 end
