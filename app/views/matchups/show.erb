@@ -1,1 +1,24 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h2><%= @matchup.user.username %>'s Madden Moment</h2>
+<h4><%= @matchup.system %></h4>
+<br>
+<h1>vs <%= @matchup.opp_name %></h1>
+<br>
+<table style="width:100%">
+  <tr>
+    <th><h3>Team Chosen</h3></th>
+    <th><h3>Opponents Team</h3></th>
+    <th><h3>My Score</h3></th>
+    <th><h3>Opponents Score</h3></th>
+  </tr>
+  <tr>
+    <td><%= @matchup.team %></td>
+    <td><%= @matchup.opp_team %></td>
+    <td><%= @matchup.score %></td>
+    <td><%= @matchup.opp_score %></td>
+  </tr>
+</table>
+<br>
+<h2>Description:</h2>
+<p><%= @matchup.description %></p>
+<br>
+<h5>created at: <%= @matchup.created_at %></h5>

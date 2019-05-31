@@ -1,5 +1,7 @@
 <h2><%= @user.username %>'s Profile</h2>
 <br>
+<a href="/matchups/new">Post Moment</a><br>
+<br>
 <% if current_user == @user %>
   <a href="/users/<%= "#{@user.id}" %>/edit">Edit Profile</a><br>
   <br>
@@ -8,3 +10,4 @@
     <input type='submit' name='delete' value='Delete Profile'>
   </form>
 <% end %>
+<br>

@@ -1,1 +1,13 @@
-<h1>This is the Model's index page.</h1>
+<h1>MADDEN MOMENTS</h1>
+<br>
+<% @matchups.each do |matchup| %>
+    <ul>
+      <li>
+        <hr>
+        <h3><a href="/matchups/<%= matchup.id %>"><%= matchup.user.username %> vs. <%= matchup.opp_name %></a></h3>
+        <p><%= matchup.score %> - <%= matchup.opp_score %></p>
+        <h4><%= matchup.system %></h4>
+        <p>posted by <a href="/users/<%= matchup.user_id %>"><%= matchup.user.username %></a> at: <%= matchup.created_at %></p>
+      </li>
+    </ul>
+<% end %>

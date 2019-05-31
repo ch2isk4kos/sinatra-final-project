@@ -16,9 +16,9 @@
   <body>
 
       <% if logged_in? %>
-        <a href="/">Home</a>
-        <a href="/users/<%= current_user.id %>">Profile</a>
-        logged in as <a href="#"><%= current_user.username %></a>
+        <a href="/matchups">Moments</a>
+        <a href="/matchups/new">Post Moment</a> logged in as <a href="#"><%= current_user.username %></a>
+        <a href="/users/<%= current_user.id %>">Settings</a>
         <a href="/logout">Sign Out</a>
       <% else %>
         <a href="/signup">Sign Up</a>
