@@ -27,25 +27,28 @@ class MatchupsController < ApplicationController
         flash[:message] = "You Have to Login to Do That."
         redirect "/login"
       else
-        if params.values == ""
-          flash[:message] = "What Did You Do? Are You OK? Try Again."
-          erb :"matchups/new"
-        else
-          @matchup = Matchup.create(
-            opp_name: params[:opp_name],
-            team: params[:team],
-            opp_team: params[:opp_team],
-            score: params[:score],
-            opp_score: params[:opp_score],
-            system: params[:system],
-            description: params[:description],
-            user_id: "#{current_user.id}"
-          )
-          flash[:message] = "Game On! New Matchup Posted."
-          redirect "/matchups/#{@matchup.id}"
-        end
-      end
-    end
+        @matchup = Matchup.new(
+           opp_name: params[:opp_name],
+           team: params[:team],
+           opp_team: params[:opp_team],
+           score: params[:score],
+           opp_score: params[:opp_score],
+           system: params[:system],
+           description: params[:description],
+           user_id: "#{current_user.id}"
+         )
+
+         if @matchup.save
+           flash[:message] = "Game On! New Matchup Posted."
+           redirect "/matchups/#{@matchup.id}"
+         else
+           flash[:message] = "What Did You Do? Are You OK? Try Again."
+           erb :"matchups/new"
+         end
+
+       end
+     end
+
 
     #SHOW
     get "/matchups/:id" do
@@ -60,16 +63,67 @@ class MatchupsController < ApplicationController
 
     #EDIT
     get "/matchups/:id/edit" do
-      erb :"matchups/edit"
+      if !logged_in?
+        flash[:message] = "You Have to Login to Do That."
+        redirect "/login"
+      else
+        @matchup = Matchup.find_by_id(params[:id])
+
+        if current_user.id == @matchup.user_id
+          erb :"matchups/edit"
+        else
+          flash[:message] = "Sorry, You Can't Do That Here!"
+          erb :"matchups/show"
+        end
+
+      end
     end
 
     #UPDATE
     patch "/matchups/:id" do
-      redirect "/matchups/:id"
+      if !logged_in?
+        flash[:message] = "You Have to Login to Do That."
+        redirect "/login"
+      else
+        @matchup = Matchup.find_by_id(params[:id])
+
+        if current_user.id == @matchup.user_id
+          @matchup.update(
+            opp_name: params[:opp_name],
+            team: params[:team],
+            opp_team: params[:opp_team],
+            score: params[:score],
+            opp_score: params[:opp_score],
+            system: params[:system],
+            description: params[:description]
+          )
+          redirect "/matchups/#{@matchup.id}"
+        else
+          flash[:message] = "I Don't Know What You Did, but Let's Try This Again."
+          erb :"matchups/edit"
+        end
+
+      end
     end
 
     #DELETE
     delete "/matchups/:id/delete" do
-      redirect "/matchups"
+      if !logged_in?
+        flash[:message] = "You Have to Login to Do That."
+        redirect "/login"
+      else
+        matchup = Matchup.find_by_id(params[:id])
+
+        if current_user.id == matchup.user_id
+          matchup.delete
+          flash[:message] = "Next Time, Play For Keeps!"
+          redirect "/users/#{current_user.id}"
+        else
+          flash[:message] = "You Can't Do That Here!"
+          erb :"matchups/show"
+        end
+
+      end
     end
+
 end

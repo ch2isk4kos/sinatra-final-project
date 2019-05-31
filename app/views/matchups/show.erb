@@ -1,4 +1,4 @@
-<h2><%= @matchup.user.username %>'s Madden Moment</h2>
+<h2><a href="/users/<%= @matchup.user_id %>"><%= @matchup.user.username %></a>'s Madden Moment</h2>
 <h4><%= @matchup.system %></h4>
 <br>
 <h1>vs <%= @matchup.opp_name %></h1>
@@ -19,6 +19,13 @@
 </table>
 <br>
 <h2>Description:</h2>
-<p><%= @matchup.description %></p>
-<br>
+<p><%= @matchup.description %></p><br>
 <h5>created at: <%= @matchup.created_at %></h5>
+<br>
+<% if current_user.id == @matchup.user_id %>
+  <a href="/matchups/<%= "#{@matchup.id}" %>/edit">Edit Moment</a>
+  <form action="/matchups/<%= "#{@matchup.id}" %>/delete" method="post">
+    <input type='hidden' name='_method' value='delete'>
+    <input type="submit" value="Delete Moment">
+  </form>
+<% end %>

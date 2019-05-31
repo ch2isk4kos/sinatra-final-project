@@ -1,11 +1,21 @@
 <h2><%= @user.username %>'s Profile</h2>
+<a href="/matchups/new">NEW Moment</a><br>
 <br>
-<a href="/matchups/new">Post Moment</a><br>
+<% @user.matchups.each do |user_matchup| %>
+  <ul>
+    <li>
+      <h3><a href="/matchups/<%= user_matchup.id %>"><%= user_matchup.user.username %> vs. <%= user_matchup.opp_name %></a></h3>
+      <p><%= user_matchup.score %> - <%= user_matchup.opp_score %></p>
+      <h4><%= user_matchup.system %></h4><br>
+      <p>posted: <%= user_matchup.created_at %></p>
+      <hr>
+    </li>
+  </ul>
+<% end %>
+
 <br>
 <% if current_user == @user %>
-  <a href="/users/<%= "#{@user.id}" %>/edit">Edit Profile</a><br>
-  <br>
-  <form action='/users/<%= "#{@user.id}" %>/delete' method='post' >
+  <form action="/users/<%= "#{@user.id}" %>/delete" method='post' >
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' name='delete' value='Delete Profile'>
   </form>
