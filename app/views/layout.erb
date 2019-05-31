@@ -17,40 +17,69 @@
     <!-- public/stylesheets/main.css -->
     <link rel="stylesheet" href="/stylesheets/main.css" />
 
+    <!-- public/stylesheets/navbar.css -->
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+
   </head>
   <body>
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+
           <a class="navbar-brand" href="#">Madden NFL Moments</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
+          <% if logged_in? %>
           <div class="collapse navbar-collapse" id="navbarsExample07">
             <ul class="navbar-nav mr-auto">
+
+              <!-- home -->
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
 
+              <!-- matchups index -->
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="/matchups">Moments</a>
               </li>
 
+              <!-- new matchup -->
               <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link" href="#">NEW Moment</a>
               </li>
 
+              <!-- about: dropdown menu -->
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown07">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <!-- about -->
+                  <a class="dropdown-item" href="#">About</a>
+                  <!-- edit current user -->
+                  <a class="dropdown-item" href="/users/<%="#{current_user.id}"%>/edit">Edit Profile</a>
+                  <!-- signout -->
+                  <a class="dropdown-item" href="/logout">Sign Out</a>
                 </div>
              </li>
+
+             <!-- current_user -->
+             <li class="nav-item">
+               <p class="nav-link">logged in as: <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a></p>
+             </li>
           </ul>
+          <% else %>
+          <ul class="navbar-nav mr-auto">
+            <!-- signup -->
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign Up</a>
+            </li>
+            <!-- login -->
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+          </ul>
+          <% end %>
 
           <!-- search bar -->
           <form class="form-inline my-2 my-md-0">
@@ -61,21 +90,12 @@
       </div> <!-- .container -->
     </nav>
 
-      <% if logged_in? %>
-        <a href="/matchups">Moments</a>
-        <a href="/matchups/new">Post Moment</a> logged in as <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a>
-        <a href="/users/<%="#{current_user.id}"%>/edit">Settings</a>
-        <a href="/logout">Sign Out</a>
-      <% else %>
-        <a href="/signup">Sign Up</a>
-        <a href="/login">Login</a>
-      <% end %><br>
-      <br>
-      <flash>
-        <% if flash.has?(:message) %>
-          <%= flash[:message] %>
-        <% end %>
-      </flash>
+    <!-- flash messages -->
+    <flash>
+      <% if flash.has?(:message) %>
+        <%= flash[:message] %>
+      <% end %>
+    </flash>
 
     <div class="wrapper">
 
