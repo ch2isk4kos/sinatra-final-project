@@ -1,6 +1,5 @@
-<h2><%= @user.username %>'s Profile</h2>
-<a href="/matchups/new">NEW Moment</a><br>
-<br>
+<h2><%= @user.username %> Matchups</h2>
+
 <% @user.matchups.each do |user_matchup| %>
   <ul>
     <li>

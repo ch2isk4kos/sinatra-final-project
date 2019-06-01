@@ -23,7 +23,8 @@
 <h5>created at: <%= @matchup.created_at %></h5>
 <br>
 <% if current_user.id == @matchup.user_id %>
-  <a href="/matchups/<%= "#{@matchup.id}" %>/edit">Edit Moment</a>
+  <a href="/matchups/<%= "#{@matchup.id}" %>/edit">Edit Moment</a><br>
+  <br>
   <form action="/matchups/<%= "#{@matchup.id}" %>/delete" method="post">
     <input type='hidden' name='_method' value='delete'>
     <input type="submit" value="Delete Moment">
