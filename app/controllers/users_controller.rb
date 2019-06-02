@@ -49,7 +49,7 @@ class UsersController < ApplicationController
         redirect '/matchups'
       else
         flash[:message] = "I'm sorry, we haven't met yet..."
-        erb :"users/new"
+        redirect "/signup"
       end
     end
 

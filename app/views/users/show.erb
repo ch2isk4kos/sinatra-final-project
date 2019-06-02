@@ -15,7 +15,8 @@
 <% if current_user.id == @user.id %>
   <form action="/users/<%= "#{@user.id}" %>/delete" method='post' >
     <input type='hidden' name='_method' value='delete'>
-    <input type='submit' name='delete' value='Delete Profile'>
+    <input type='submit' name='delete' value='Delete Profile' class="btn btn-danger">
   </form>
 <% end %>
 <br>
+<img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fbrianmazique%2Ffiles%2F2018%2F10%2FXSplit-2018-10-14_23-40-45.jpg" alt="" id="bg-vid">
