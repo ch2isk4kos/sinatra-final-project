@@ -1,4 +1,4 @@
-<h2>Edit <%= @matchup.user.username %>'s Moment</h2>
+<h2><a href="#"><strong>Edit <%= @matchup.user.username %>'s Matchup</strong></a></h2>
 <br>
 <form action="/matchups/<%= "#{@matchup.id}" %>" method="post">
     <label for="opp_name">Opponent Name:</label>

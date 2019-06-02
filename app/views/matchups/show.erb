@@ -1,8 +1,16 @@
-<h2><a href="/users/<%= @matchup.user_id %>"><%= @matchup.user.username %></a>'s Madden Moment</h2>
+<!-- user -->
+<h2><a href="/users/<%= @matchup.user_id %>"><strong><%= @matchup.user.username %></strong></a>'s Madden Moment</h2>
+<!-- system -->
 <h4><%= @matchup.system %></h4>
+
 <br>
-<h1>vs <%= @matchup.opp_name %></h1>
+
+<!-- opp_name -->
+<h1>vs <a href="#"><strong><%= @matchup.opp_name %></strong></a></h1>
+
 <br>
+
+<!-- matchup table -->
 <table style="width:100%">
   <tr>
     <th><h3>Team Chosen</h3></th>
@@ -16,12 +24,16 @@
     <td><%= @matchup.score %></td>
     <td><%= @matchup.opp_score %></td>
   </tr>
-</table>
+</table><br>
+
 <br>
+
+<!-- description -->
 <h2>Description:</h2>
-<p><%= @matchup.description %></p><br>
-<h5>created at: <%= @matchup.created_at %></h5>
-<br>
+<h5><%= @matchup.description %></h5><br>
+<p>created at: <%= @matchup.created_at %></p>
+
+<!-- edit/delete buttons -->
 <% if current_user.id == @matchup.user_id %>
   <a href="/matchups/<%= "#{@matchup.id}" %>/edit" class="btn btn-primary">Edit Moment</a><br>
   <br>
@@ -31,4 +43,5 @@
   </form>
 <% end %>
 
+<!-- background images -->
 <img src="https://www.whitewolfsports.com/wp-content/uploads/2019/02/oLFNZ2lPFZ6Zjl8E4jHz.jpg" alt="" id="bg-vid">

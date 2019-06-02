@@ -1,13 +1,12 @@
-<h1>MADDEN MOMENTS</h1>
-<br>
+<h1>Madden Matchups</h1>
 <% @matchups.each do |matchup| %>
     <ul>
       <li>
-        <hr>
-        <h3><a href="/matchups/<%= matchup.id %>"><%= matchup.user.username %> vs. <%= matchup.opp_name %></a></h3>
+        <h2></h2>
+        <h1><a href="/matchups/<%= matchup.id %>"><strong><%= matchup.user.username %></strong></a></h1>vs.<h3><%= matchup.opp_name %></h3>
         <p><%= matchup.score %> - <%= matchup.opp_score %></p>
-        <h4><%= matchup.system %></h4>
-        <p>posted by <a href="/users/<%= matchup.user_id %>"><%= matchup.user.username %></a> at: <%= matchup.created_at %></p>
+        <h4><%= matchup.system %></h4><br>
+        <p>posted by <a href="/users/<%= matchup.user_id %>"><strong><%= matchup.user.username %></strong></a> at: <%= matchup.created_at %></p>
       </li>
     </ul>
 <% end %>

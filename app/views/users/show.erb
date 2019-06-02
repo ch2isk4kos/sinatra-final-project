@@ -1,13 +1,13 @@
-<h2><%= @user.username %> Matchups</h2>
+<h2><a href="#"><strong><%= @user.username %></strong></a> Matchups</h2>
 
 <% @user.matchups.each do |user_matchup| %>
   <ul>
     <li>
-      <h3><a href="/matchups/<%= user_matchup.id %>"><%= user_matchup.user.username %> vs. <%= user_matchup.opp_name %></a></h3>
+      <h3><a href="/matchups/<%= user_matchup.id %>"><strong><%= user_matchup.user.username %> vs. <%= user_matchup.opp_name %></strong></a></h3>
       <p><%= user_matchup.score %> - <%= user_matchup.opp_score %></p>
-      <h4><%= user_matchup.system %></h4><br>
+      <h4><%= user_matchup.system %></h4>
       <p>posted: <%= user_matchup.created_at %></p>
-      <hr>
+      <h2></h2>
     </li>
   </ul>
 <% end %>
