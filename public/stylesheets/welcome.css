@@ -1,0 +1,19 @@
+.jumbotron {
+    background-image: url("");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+/* footer */
+.welcome-foot {
+    margin-left: 10%;
+    padding-left: 7%;
+}
+
+.welcome-foot a {
+    padding-left: 8px;
+    padding-right: 8px;
+
+}

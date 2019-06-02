@@ -14,9 +14,22 @@
   /* --- Welcome Page Styles --- */
   body {
     background-color: lightblue;
-    color: #333;
+    color: #000000;
     font-family: Sans-Serif;
     line-height: 18px;
+  }
+
+  /* jumbotron */
+  #bg-vid{
+    /*  making the video fullscreen  */
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
   }
 
   .wrapper {
@@ -75,6 +88,7 @@
   .branding {
     clear: both;
   }
+
 
   footer.branding {
     border-top: 2px solid #ccc;
