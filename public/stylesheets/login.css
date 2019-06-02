@@ -32,9 +32,9 @@
     z-index: -100;
   }
 
-  .wrapper {
-    /* background: #fff; */
-    color: #fff;
+  .login-wrapper {
+    background-color: transparent;
+    color: white;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -92,7 +92,7 @@
 
 
   footer.branding {
-    color: white;
+    color: #fff;
     border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;

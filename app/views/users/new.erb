@@ -1,13 +1,181 @@
-<h1>Sign Up</h1>
-<form action="/signup" method="post"><br>
-    <label for="username">Gamer Tag</label><br>
-    <input type="text" name="username" id="username"><br>
-    <br>
-    <label for="email">Email</label><br>
-    <input type="text" name="email" id="email"><br>
-    <br>
-    <label for="password">Password</label><br>
-    <input type="password" name="password" id="password"><br>
-    <br>
-    <input type="submit" name="submit">
-</form>
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+
+    <title>Madden Matchup</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap v4.3.1 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- font awesome v4.7 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- public/stylesheets/main.css -->
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+
+    <!-- public/stylesheets/navbar.css -->
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+
+    <!-- public/stylesheets/signup.css -->
+    <link rel="stylesheet" href="/stylesheets/signup.css">
+
+  </head>
+  <body>
+
+      <!-- navbar template -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+
+          <!-- matchups index (brand) -->
+          <a class="navbar-brand" href="/matchups">Madden NFL Matchups</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <% if logged_in? %>
+          <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav mr-auto">
+
+              <!-- home -->
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <i class="fa fa-lg fa-home" aria-hidden="true"></i> <span class="sr-only">(current)</span></a>
+              </li>
+
+              <!-- new matchup -->
+              <li class="nav-item">
+                <a class="nav-link" href="/matchups/new">NEW Matchup</a>
+              </li>
+
+              <!-- about: dropdown menu -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings <i class="fa fa-lg fa-cog" aria-hidden="true"></i></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown07">
+                  <!-- about -->
+                  <a class="dropdown-item" href="#">About</a>
+                  <!-- edit current user -->
+                  <a class="dropdown-item" href="/users/<%="#{current_user.id}"%>/edit">Edit Profile</a>
+                  <!-- signout -->
+                  <a class="dropdown-item" href="/logout">Sign Out</a>
+                </div>
+             </li>
+
+             <!-- current_user -->
+             <li class="nav-item">
+               <p class="nav-link">logged in as: <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a></p>
+             </li>
+
+          </ul>
+          <% else %>
+          <ul class="navbar-nav mr-auto">
+
+            <!-- signup -->
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign Up</a>
+            </li>
+
+            <!-- login -->
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+
+          </ul>
+          <% end %>
+
+          <!-- search bar -->
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+          </form>
+
+        </div> <!-- .collapse .navbar-collapse -->
+      </div> <!-- .container -->
+    </nav>
+
+    <!-- flash messages -->
+    <div class="container" id="fm">
+      <flash>
+          <% if flash.has?(:message) %>
+            <div class="alert alert-warning">
+                <h4 class="text-center"><%= flash[:message] %></h4>
+            </div>
+          <% end %>
+      </flash>
+     </div>
+
+     <!-- signup form -->
+     <div class="new-wrapper">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="post"><br>
+            <label for="username">Gamer Tag</label><br>
+            <input type="text" name="username" id="username"><br>
+            <br>
+            <label for="email">Email</label><br>
+            <input type="text" name="email" id="email"><br>
+            <br>
+            <label for="password">Password</label><br>
+            <input type="password" name="password" id="password"><br>
+            <br>
+            <input type="submit" name="submit" class="btn btn-primary">
+        </form>
+        <footer class="branding">
+          <small>&copy; 2019 <strong>Madden NFL Matchup</strong></small>
+          <a href="https://twitter.com/codenamekakos" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://codepen.io/algoreriddum/" target="_blank"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+          <a href="https://medium.com/@ckakos" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>
+        </footer>
+      </div>
+
+
+    <img src="https://www.operationsports.com/wp-content/uploads/2019/04/abmadden.jpg" alt="" id="bg-vid">
+
+
+    <!-- bottom navbar -->
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">@ChrisKakos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+          <li class="nav-item dropup">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropup</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown10">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!--[if lt IE 7]>
+      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- bootstrap js plugins-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

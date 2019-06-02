@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         flash[:message] = "You're already apart of the team #{current_user.username}!"
         redirect "/"
       else
-        erb :"users/new"
+        erb :"users/new", :layout => :"users/new"
       end
     end
 
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
         flash[:message] = "You're already logged in #{current_user.username}."
         redirect "/"
       else
-        erb :"users/login"
+        erb :"users/login", :layout => :"users/login"
       end
     end
 
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         flash[:message] = "Welcome Back #{user.username}"
-        redirect '/'
+        redirect '/matchups'
       else
         flash[:message] = "I'm sorry, we haven't met yet..."
         erb :"users/new"

@@ -1,15 +1,27 @@
 <h2>Edit <%= @matchup.user.username %>'s Moment</h2>
 <br>
 <form action="/matchups/<%= "#{@matchup.id}" %>" method="post">
-    <h3>Opponent Name: <input type="text" name="opp_name" value="<%= @matchup.opp_name %>" id="opp_name"></h3><br>
-    <h3>Team Chosen: <input type="text" name="team" value="<%= @matchup.team %>" id="team"></h3><br>
-    <h3>Opponent Team: <input type="text" name="opp_team" value="<%= @matchup.opp_team %>" id="opp_team"></h3><br>
-    <h3>Your Score: <input type="text" name="score" value="<%= @matchup.score %>" id="score"></h3><br>
-    <h3>Opponents Score: <input type="text" name="opp_score" value="<%= @matchup.opp_score %>" id="opp_score"></h3><br>
-    <h3>System: <input type="text" name="system" value="<%= @matchup.system %>" id="system"></h3><br>
-    <h3>Game Comentary:</h3>
+    <label for="opp_name">Opponent Name:</label>
+    <input type="text" name="opp_name" value="<%= @matchup.opp_name %>" id="opp_name"><br>
+
+    <label for="team">Team Chosen:</label>
+    <input type="text" name="team" value="<%= @matchup.team %>" id="team"><br>
+
+    <label for="opp_team">Opponent Team:</label>
+    <input type="text" name="opp_team" value="<%= @matchup.opp_team %>" id="opp_team"><br>
+
+    <label for="score">Your Score:</label>
+    <input type="text" name="score" value="<%= @matchup.score %>" id="score"><br>
+
+    <label for="opp_score">Opponents Score::</label>
+    <input type="text" name="opp_score" value="<%= @matchup.opp_score %>" id="opp_score"><br>
+
+    <label for="system">System:</label>
+    <input type="text" name="system" value="<%= @matchup.system %>" id="system"><br>
+
+    <label for="description">Game Commentary</label>
     <textarea name="description" id="description" rows="10" cols="50"><%= @matchup.description %></textarea><br>
     <br>
     <input type='hidden' name='_method' value='patch'>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-primary">
 </form>

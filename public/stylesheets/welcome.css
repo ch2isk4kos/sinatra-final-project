@@ -1,9 +1,12 @@
+* {
+    /* font-family: 'Chivo', sans-serif; */
+    font-family: 'Cantata One', serif;
+}
+
 .jumbotron {
-    background-image: url("");
-    background-size: cover;
+    background-color: url("");
     background-repeat: no-repeat;
     background-position: center;
-
 }
 
 /* footer */
