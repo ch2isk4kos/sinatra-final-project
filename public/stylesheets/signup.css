@@ -32,6 +32,10 @@
     z-index: -100;
   }
 
+  .navbar {
+      min-height: 10px;
+  }
+
   #nfl {
       width: 135px;
       height: auto;
@@ -40,6 +44,11 @@
   #nfl {
       width: 35px;
       height: auto;
+  }
+
+  #nav-bot-br {
+    padding-top: 20px;
+    color: #007bff;
   }
 
   .new-wrapper {

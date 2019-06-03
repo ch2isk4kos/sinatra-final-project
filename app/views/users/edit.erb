@@ -1,4 +1,4 @@
-<h1>Edit <strong><%= @user.username %></strong></h1>
+<h1>Edit <a href="#"><strong><%= @user.username %></strong></a></h1>
 <form action="/users/<%= "#{@user.id}" %>" method="post">
   <label for="username">Gamer Tag:</label><br>
   <input type="text" name="username" value="<%= @user.username %>" id="username"><br>

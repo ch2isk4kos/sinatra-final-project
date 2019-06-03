@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
       if !user.save
         flash[:message] = "What did you do? Are you OK? Let's try this again."
-        erb :'users/new'
+        redirect "/signup"
       else
         flash[:message] = "Welcome to the Team #{user.username}! Sign In."
         session[:user_id] = user.id
