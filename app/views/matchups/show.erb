@@ -19,10 +19,10 @@
     <th><h3>Opponents Score</h3></th>
   </tr>
   <tr>
-    <td><%= @matchup.team %></td>
-    <td><%= @matchup.opp_team %></td>
-    <td><%= @matchup.score %></td>
-    <td><%= @matchup.opp_score %></td>
+    <td><strong><%= @matchup.team %></strong></td>
+    <td><strong><%= @matchup.opp_team %></strong></td>
+    <td><strong><%= @matchup.score %></strong></td>
+    <td><strong><%= @matchup.opp_score %></strong></td>
   </tr>
 </table><br>
 
@@ -30,16 +30,16 @@
 
 <!-- description -->
 <h2>Description:</h2>
-<h5><%= @matchup.description %></h5><br>
+<h5><strong><%= @matchup.description %></strong></h5><br>
 <p>created at: <%= @matchup.created_at %></p>
 
 <!-- edit/delete buttons -->
 <% if current_user.id == @matchup.user_id %>
-  <a href="/matchups/<%= "#{@matchup.id}" %>/edit" class="btn btn-primary">Edit Moment</a><br>
+  <a href="/matchups/<%= "#{@matchup.id}" %>/edit" class="btn btn-primary">Edit Matchup</a><br>
   <br>
   <form action="/matchups/<%= "#{@matchup.id}" %>/delete" method="post">
     <input type='hidden' name='_method' value='delete'>
-    <input type="submit" value="Delete Moment" class="btn btn-danger">
+    <input type="submit" value="Delete Matchup" class="btn btn-danger">
   </form>
 <% end %>
 

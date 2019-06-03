@@ -1,14 +1,14 @@
-<h1>Edit <%= @user.username %></h1>
+<h1>Edit <strong><%= @user.username %></strong></h1>
 <form action="/users/<%= "#{@user.id}" %>" method="post">
   <label for="username">Gamer Tag:</label><br>
-  <input type="text" name="username" value="<%= @user.username %>" id="username">
+  <input type="text" name="username" value="<%= @user.username %>" id="username"><br>
   <br>
   <label for="email">Email</label><br>
-  <input type="text" name="email" value="<%= @user.email %>" id="email">
+  <input type="text" name="email" value="<%= @user.email %>" id="email"><br>
   <br>
   <label for="password">Password</label><br>
   <input type="password" name="password" id="email">
-  <h5>enter your password to verify changes</h5>
+  <p>enter your password <br>to verify changes</p>
   <br>
   <input type='hidden' name='_method' value='patch'>
   <input type="submit" value="Update" class="btn btn-primary">

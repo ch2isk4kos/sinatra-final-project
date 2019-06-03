@@ -38,7 +38,7 @@
         <div class="container">
 
           <!-- matchups index (brand) -->
-          <a class="navbar-brand" href="/matchups">Madden NFL Matchups</a>
+         <a class="navbar-brand" href="/matchups">Madden<img id="nfl"src="http://pluspng.com/img-png/nfl-logo-vector-png-nfl-logo-vector-logo-nfl-png-800.png" alt="">Matchup</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -72,7 +72,7 @@
 
              <!-- current_user -->
              <li class="nav-item">
-               <p class="nav-link">logged in as: <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a></p>
+               <p id="log-icon" class="nav-link">logged in as <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a></p>
              </li>
 
           </ul>
@@ -101,7 +101,7 @@
       <flash>
           <% if flash.has?(:message) %>
             <div class="alert alert-warning">
-                <h4 class="text-center"><%= flash[:message] %></h4>
+                <h5 class="text-center"><%= flash[:message] %></h5>
             </div>
           <% end %>
       </flash>
@@ -109,30 +109,29 @@
 
      <!-- jumbotron  -->
      <div class="container">
-       <div class="jumbotron mt-3">
-           <h1>Sinatra Final Project</h1>
-           <p class="lead">A Web Application That Tracks User Matchups in Madden NFL</p>
-           <a class="btn btn-lg btn-primary" href="/signup" role="button">Sign Up &raquo;</a>
+       <div class="jumbotron">
+         <h1>Sinatra Final Project</h1>
+         <p class="lead">A Web Application That Tracks User Matchups in Madden NFL</p>
+         <a class="btn btn-lg btn-primary" href="/signup" role="button">Sign Up &raquo;</a>
        </div>
      </div>
 
-     <!-- background video -->
-     <video autoplay muted loop id="bg-vid">
-       <source src="https://giant.gfycat.com/GiganticDistortedBagworm.mp4" type="video/mp4">
-       <!-- <source src="https://giant.gfycat.com/BaggySpeedyDrever.mp4" type="video/mp4"> -->
-       <!-- <source src="https://giant.gfycat.com/WelltodoIncomparableAdmiralbutterfly.mp4" type="video/mp4"> -->
-       <!-- <source src="https://giant.gfycat.com/AmazingMarriedJavalina.mp4" type="video/mp4"> -->
-       <!-- <source src="https://media.giphy.com/media/h3Ske2grEQ6uA/giphy.mp4" type="video/mp4"> -->
-       <!-- <source src="https://i.imgur.com/K0jnu7c.mp4" type="video/mp4"> -->
-     </video>
-
-
       <footer class="welcome-foot">
-        <small>&copy; 2019 <strong>Madden NFL Matchup</strong></small>
+        <small>&copy; 2019 <strong>Chris Kakos</strong></small>
         <a href="https://twitter.com/codenamekakos" target="_blank"><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a>
         <a href="https://codepen.io/algoreriddum/" target="_blank"><i class="fa fa-lg fa-codepen" aria-hidden="true"></i></a>
         <a href="https://medium.com/@ckakos" target="_blank"><i class="fa fa-lg fa-medium" aria-hidden="true"></i></a>
       </footer>
+
+      <!-- background video -->
+      <video autoplay muted loop id="bg-vid">
+        <!-- <source src="https://giant.gfycat.com/GiganticDistortedBagworm.mp4" type="video/mp4"> -->
+        <source src="https://giant.gfycat.com/BaggySpeedyDrever.mp4" type="video/mp4">
+        <!-- <source src="https://giant.gfycat.com/WelltodoIncomparableAdmiralbutterfly.mp4" type="video/mp4"> -->
+        <!-- <source src="https://giant.gfycat.com/AmazingMarriedJavalina.mp4" type="video/mp4"> -->
+        <!-- <source src="https://media.giphy.com/media/h3Ske2grEQ6uA/giphy.mp4" type="video/mp4"> -->
+        <!-- <source src="https://i.imgur.com/K0jnu7c.mp4" type="video/mp4"> -->
+      </video>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>

@@ -32,6 +32,16 @@
     z-index: -100;
   }
 
+  #nfl {
+      width: 135px;
+      height: auto;
+  }
+
+  #nfl {
+      width: 35px;
+      height: auto;
+  }
+
   .new-wrapper {
     background-color: transparent;
     color: white;

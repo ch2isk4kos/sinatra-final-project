@@ -34,7 +34,7 @@
         <div class="container">
 
           <!-- matchups index (brand) -->
-          <a class="navbar-brand" href="/matchups">Madden NFL Matchups</a>
+          <a class="navbar-brand" href="/matchups">Madden<img id="nfl"src="http://pluspng.com/img-png/nfl-logo-vector-png-nfl-logo-vector-logo-nfl-png-800.png" alt="">Matchup</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -68,7 +68,7 @@
 
              <!-- current_user -->
              <li class="nav-item">
-               <p class="nav-link">logged in as: <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a></p>
+               <p id="log-icon" class="nav-link">logged in as <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a></p>
              </li>
 
           </ul>
@@ -102,7 +102,7 @@
       <flash>
           <% if flash.has?(:message) %>
             <div class="alert alert-warning">
-                <h4 class="text-center"><%= flash[:message] %></h4>
+                <h5 class="text-center"><%= flash[:message] %></h5>
             </div>
           <% end %>
       </flash>
@@ -124,7 +124,7 @@
             <input type="submit" name="submit" class="btn btn-primary">
         </form>
         <footer class="branding">
-          <small>&copy; 2019 <strong>Madden NFL Matchup</strong></small>
+          <small>&copy; 2019 <strong>Chris Kakos</strong></small>
           <a href="https://twitter.com/codenamekakos" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
           <a href="https://codepen.io/algoreriddum/" target="_blank"><i class="fa fa-codepen" aria-hidden="true"></i></a>
           <a href="https://medium.com/@ckakos" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>

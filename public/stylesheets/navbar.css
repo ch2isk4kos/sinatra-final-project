@@ -7,3 +7,33 @@
     width: 59%;
     margin-top: 20px;
 }
+
+/* logo */
+#nfl {
+    width: 135px;
+    height: auto;
+}
+
+#nfl {
+    width: 35px;
+    height: auto;
+}
+
+#nfl-index {
+    width: 180px;
+    height: auto;
+}
+
+#nfl-index {
+    width: 80px;
+    height: auto;
+}
+
+#nav-bot-br {
+  padding-top: 20px;
+  color: #007bff;
+}
+
+#log-icon {
+    padding-left: 180px;
+}

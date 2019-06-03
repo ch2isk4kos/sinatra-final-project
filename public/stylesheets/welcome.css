@@ -1,12 +1,5 @@
-* {
-    /* font-family: 'Chivo', sans-serif; */
-    font-family: 'Cantata One', serif;
-}
-
 .jumbotron {
-    background-color: url("");
-    background-repeat: no-repeat;
-    background-position: center;
+    
 }
 
 /* footer */
@@ -18,5 +11,14 @@
 .welcome-foot a {
     padding-left: 8px;
     padding-right: 8px;
+}
 
+#nfl {
+    width: 135px;
+    height: auto;
+}
+
+#nfl {
+    width: 35px;
+    height: auto;
 }

@@ -37,7 +37,7 @@
         <div class="container">
 
           <!-- matchups index (brand) -->
-          <a class="navbar-brand" href="/matchups">Madden NFL Matchups</a>
+          <a class="navbar-brand" href="/matchups">Madden<img id="nfl"src="http://pluspng.com/img-png/nfl-logo-vector-png-nfl-logo-vector-logo-nfl-png-800.png" alt="">Matchup</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -71,7 +71,7 @@
 
              <!-- current_user -->
              <li class="nav-item">
-               <p class="nav-link">logged in as: <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a></p>
+               <p id="log-icon" class="nav-link">logged in as <a href="/users/<%="#{current_user.id}"%>"><%= current_user.username %></a></p>
              </li>
 
           </ul>
@@ -105,7 +105,7 @@
       <flash>
           <% if flash.has?(:message) %>
             <div class="alert alert-warning">
-                <h4 class="text-center"><%= flash[:message] %></h4>
+                <h5 class="text-center"><%= flash[:message] %></h5>
             </div>
           <% end %>
       </flash>
@@ -123,7 +123,7 @@
 
     <!-- bottom navbar -->
     <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">@ChrisKakos</a>
+      <a id="nav-bot-br"class="navbar-brand" href="#"><strong>Chris Kakos</strong></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -133,17 +133,17 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">NEW</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link" href="#">Settings</a>
           </li>
           <li class="nav-item dropup">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropup</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Social</a>
             <div class="dropdown-menu" aria-labelledby="dropdown10">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="https://twitter.com/codenamekakos" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+              <a class="dropdown-item" href="https://codepen.io/algoreriddum/" target="_blank"><i class="fa fa-codepen" aria-hidden="true"> Codepen</i></a>
+              <a class="dropdown-item" href="https://medium.com/@ckakos" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i> Medium</a>
             </div>
           </li>
         </ul>
